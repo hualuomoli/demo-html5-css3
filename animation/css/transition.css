@@ -1,0 +1,157 @@
+/** transition添加在动作上 */
+
+/*
+    transition-property: 定义应用过渡的 CSS 属性的名称        
+    transition-duration: 定义过渡效果花费的时间。默认是 0      
+transition-timing-functionn: 定义过渡效果的时间曲线。默认是 "ease"。  
+       transition-delay: 定义过渡效果何时开始。默认是 0。      
+*/
+
+.transition {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background: #ddd;
+}
+
+.transition:hover {
+  width: 300px;
+  height: 150px;
+  background-color: #486AAA;
+  color: #fff;
+}
+
+/****************** 属性 ****************/
+.property div {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* 背景 */
+.property .bg {
+  -webkit-transition-property: background-color; /* 背景 */
+  transition-property: background-color;
+}
+
+/* 宽度 */
+.property .width {
+  -webkit-transition-property: width; /* 宽度 */
+  transition-property: width;
+}
+
+/* 所有 */
+.property .all {
+  -webkit-transition-property: all; /* 所有属性 */
+  transition-property: all;
+}
+
+/****************** 持续时间 ****************/
+.duration div {
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+
+/* 时间短 */
+.duration .fast {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+/* 时间长 */
+.duration .slow {
+  -webkit-transition-duration: 5s;
+  transition-duration: 5s;
+}
+
+/****************** 过渡效果 ****************/
+.timing-functionn div {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 3s;
+  transition-duration: 3s;
+}
+
+/* ease: 默认。动画以低速开始，然后加快，在结束前变慢 */
+.timing-functionn .ease {
+}
+
+/* linear: 动画从头到尾的速度是相同的 */
+.timing-functionn .linear {
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
+/* ease-in: 动画以低速开始 */
+.timing-functionn .ease-in {
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+
+/* ease-out: 动画以低速结束 */
+.timing-functionn .ease-out {
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+/* ease-in-out: 动画以低速开始和结束 */
+.timing-functionn .ease-in-out {
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+/****************** 延迟 ****************/
+.delay div {
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 3s;
+  transition-duration: 3s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+
+/* 默认没有延迟 */
+.delay .default {
+}
+
+/* time */
+.delay .time {
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+/****************** 组合 ****************/
+.assemble div {
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+/****************** 动画demo ****************/
+
+/* 父级相对定位 */
+.animation {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  margin: 30px;
+}
+
+/* 图片绝对定位,第二个覆盖第一个 */
+.animation img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* 动画事件定义到元素上 */
+
+/* 定义动画 */
+.animation img.second {
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+/* 动画事件 */
+.animation img.second:hover {
+  opacity: 0;
+}

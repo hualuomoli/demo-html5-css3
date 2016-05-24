@@ -1,0 +1,186 @@
+/** transform添加在动作上 */
+
+/* 2D 转换方法 */
+
+/*
+transform: 元素应用 2D 或 3D 转换
+  2D:
+     translate(x,y): 定义 2D 转换，沿着 X 和 Y 轴移动元素
+    translateX(n): 定义 2D 转换，沿着 X 轴移动元素
+    translateY(n): 定义 2D 转换，沿着 Y 轴移动元素
+       scale(x,y): 定义 2D 缩放转换，改变元素的宽度和高度
+      scaleX(n): 定义 2D 缩放转换，改变元素的宽度
+      scaleY(n): 定义 2D 缩放转换，改变元素的高度
+    rotate(angle): 定义 2D 旋转，在参数中规定角度
+skew(x-angle,y-angle): 定义 2D 倾斜转换，沿着 X 和 Y 轴
+     skewX(angle): 定义 2D 倾斜转换，沿着 X 轴
+     skewY(angle): 定义 2D 倾斜转换，沿着 Y 轴
+
+transform-origin: 允许你改变被转换元素的位置
+  top
+  right
+  bottom
+  left
+*/
+
+.transform {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  background: #ddd;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+}
+
+/****************** 2d ****************/
+
+/****************** 移动 ****************/
+
+/* 沿X轴Y轴移动; */
+.t-2d .translate:hover {
+  background-color: #486AAA;
+  -webkit-transform: translate(20px, 100px);
+  transform: translate(20px, 100px);
+}
+
+/* 沿X轴移动 */
+.t-2d .translate-x:hover {
+  background-color: #486AAA;
+  -webkit-transform: translateX(100px);
+  transform: translateX(100px);
+}
+
+/* 沿Y轴移动 */
+.t-2d .translate-y:hover {
+  background-color: #486AAA;
+  -webkit-transform: translateY(200px);
+  transform: translateY(200px);
+}
+
+/****************** 缩放 ****************/
+
+/* 沿X轴Y轴缩放; */
+.t-2d .scale:hover {
+  background-color: #486AAA;
+  -webkit-transform: scale(1.5, .8);
+  transform: scale(1.5, .8);
+}
+
+/* 沿X轴缩放 */
+.t-2d .scale-x:hover {
+  background-color: #486AAA;
+  -webkit-transform: scaleX(.8);
+  transform: scaleX(.8);
+}
+
+/* 沿Y轴缩放 */
+.t-2d .scale-y:hover {
+  background-color: #486AAA;
+  -webkit-transform: scaleY(1.1);
+  transform: scaleY(1.1);
+}
+
+/****************** 旋转 ****************/
+.t-2d .rotate:hover {
+  background-color: #486AAA;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+/****************** 倾斜 ****************/
+
+/* 沿X轴Y轴倾斜; */
+.t-2d .skew:hover {
+  background-color: #486AAA;
+  -webkit-transform: skew(30deg, -60deg);
+  transform: skew(30deg, -60deg);
+}
+
+/* 沿X轴倾斜 */
+.t-2d .skew-x:hover {
+  background-color: #486AAA;
+  -webkit-transform: skewX(60deg);
+  transform: skewX(60deg);
+}
+
+/* 沿Y轴倾斜 */
+.t-2d .skew-y:hover {
+  background-color: #486AAA;
+  -webkit-transform: skewY(20deg);
+  transform: skewY(20deg);
+}
+
+/****************** 动画demo ****************/
+
+/* 父级相对定位 */
+.animation,
+.origin {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  margin: 30px;
+}
+
+/* 图片绝对定位,第二个覆盖第一个 */
+.animation img,
+.origin img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* 定义动画 */
+.animation img,
+.origin img {
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+/* animation */
+
+/* 第一个默认高度为0 */
+.animation img.top {
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+  opacity: 0;
+}
+
+/* 动画效果1 */
+.animation:hover img.top {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+/* 动画效果2 */
+.animation:hover img.bottom {
+  -webkit-transform: rotate(720deg) scale(0, 0);
+  transform: rotate(720deg) scale(0, 0);
+}
+
+/* origin */
+
+/* 第一个默认高度为0 */
+.origin img.top {
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  opacity: 0;
+}
+
+/* 动画效果1 */
+.origin:hover img.top {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  opacity: 1;
+}
+
+/* 动画效果2 */
+.origin:hover img.bottom {
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+}

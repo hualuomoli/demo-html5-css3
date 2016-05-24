@@ -1,0 +1,61 @@
+/** animation */
+
+/*
+        @keyframes: 定义动画
+      		animation-name: 定义 @keyframes 动画的名称
+    	animation-duration: 定义动画完成一个周期所花费的秒或毫秒。默认是 0
+ animation-timing-function: 定义动画的速度曲线。默认是 "ease"
+       	   animation-delay: 定义动画何时开始。默认是 0
+ animation-iteration-count: 定义动画被播放的次数。默认是 1
+       animation-direction: 定义动画是否在下一周期逆向地播放。默认是 "normal"
+      animation-play-state: 定义动画是否正在运行或暂停。默认是 "running"
+*/
+
+/* 自定义动画 */
+@-webkit-keyframes resize {
+  0% {
+    width: 100px;
+  }
+
+  50% {
+    width: 500px;
+    background-color: rgba(190, 206, 235, 0.2);
+  }
+
+  100% {
+    width: 800px;
+    background-color: rgba(190, 206, 235, 0.9);
+  }
+
+}
+
+/****************** 通过事件启动 ****************/
+.resize {
+  margin: 0px auto;
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+}
+
+.resize:hover {
+  -webkit-animation-name: resize;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-iteration-count: 4;
+  -webkit-animation-direction: alternate;
+}
+
+/****************** 自动启动 ****************/
+.auto {
+  margin: 0px auto;
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+  -webkit-animation-name: resize;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+}
